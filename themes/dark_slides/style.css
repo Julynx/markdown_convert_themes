@@ -1,0 +1,402 @@
+@page {
+  size: 1920px 1080px !important;
+  background-color: #202020;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  @bottom-right {
+    content: counter(page) " / " counter(pages);
+    font-size: 0.5em;
+    font-family: Arial, sans-serif;
+    color: var(--color-text-light);
+    vertical-align: top;
+  }
+  @bottom-left {
+    content: var(--document-author);
+    font-size: 0.5em;
+    font-family: Arial, sans-serif;
+    color: var(--color-text-light);
+    vertical-align: top;
+  }
+  @top-right {
+    content: var(--document-date);
+    font-size: 0.5em;
+    font-family: Arial, sans-serif;
+    color: var(--color-text-light);
+    vertical-align: bottom;
+  }
+  @top-left {
+    content: var(--document-name);
+    font-size: 0.5em;
+    font-family: Arial, sans-serif;
+    color: var(--color-text-light);
+    vertical-align: bottom;
+  }
+}
+
+@page :first {
+  @top-left {
+    content: normal;
+  }
+  @top-right {
+    content: normal;
+  }
+  @bottom-left {
+    content: normal;
+  }
+  @bottom-right {
+    content: normal;
+  }
+}
+
+:root {
+  /* -- Metadata -- */
+  --document-name: "Document name";
+  --document-date: "DD/MM/YYYY";
+  --document-author: "Author";
+
+  /* -- Header margins -- */
+  --top-margin: 1em;
+  --bottom-margin-small: 0.25em;
+
+  /* -- Element margins -- */
+  --bottom-margin: 1em;
+
+  /* -- Nested element margins -- */
+  --left-margin: 1.5em;
+  --left-margin-small: 1em;
+  --left-margin-big: 2em;
+
+  /* -- Colors -- */
+  --color-text: #eee;
+  --color-text-light: #aaa;
+  --color-text-background: #333;
+  --color-border: #999;
+  --color-border-light: #ccc;
+  --color-links: #09f;
+  --color-ad-note: oklch(70% 0.1 238.77);
+  --color-ad-tip: oklch(70% 0.1 142.605);
+  --color-ad-important: oklch(70% 0.1 284.67);
+  --color-ad-warning: oklch(70% 0.1 74.25);
+  --color-ad-caution: oklch(70% 0.1 14.4);
+}
+
+html {
+  font-size: 48px;
+  line-height: 1.6;
+  padding: 0 1px; /* Prevents table border from being cut off */
+}
+
+/* Dark theme for charts and diagrams */
+.vega-lite {
+  display: block;
+  margin: 0 auto;
+  width: 60% !important;
+  height: auto !important;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.vega-lite svg {
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 16px;
+}
+
+div.schemdraw {
+  display: block;
+  margin: 2em auto;
+  width: 60% !important;
+  height: auto !important;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+div.schemdraw svg {
+  background-color: var(--color-text-light);
+  padding: 1em;
+  border-radius: 16px;
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Dark theme for admonitions */
+.admonition {
+  break-inside: avoid;
+}
+
+.admonition p {
+  color: #202020;
+}
+
+/* Macros for document metadata */
+.dname::after {
+  content: var(--document-name);
+}
+
+.dauthor::after {
+  content: var(--document-author);
+}
+
+.ddate::after {
+  content: var(--document-date);
+}
+
+/* Cover page formatting */
+h1:has(.dname) {
+  text-align: center;
+  font-size: 3em;
+  margin-top: 1.5em;
+}
+
+blockquote:has(.dauthor) {
+  border-left: none;
+  text-align: center;
+}
+
+/* TOC skip first h1 title (cover) and its sections */
+.toc > li:first-child {
+  display: none;
+}
+
+/*
+* Dracula Theme for fenced code blocks
+* Adapted from https://github.com/zenorocha/dracula-theme
+*/
+.pygments-c {
+  color: #6272a4 !important;
+} /* Comment */
+.pygments-err {
+  color: #f8f8f2 !important;
+} /* Error */
+.pygments-g {
+  color: #f8f8f2 !important;
+} /* Generic */
+.pygments-k {
+  color: #ff79c6 !important;
+} /* Keyword */
+.pygments-l {
+  color: #f8f8f2 !important;
+} /* Literal */
+.pygments-n {
+  color: #f8f8f2 !important;
+} /* Name */
+.pygments-o {
+  color: #ff79c6 !important;
+} /* Operator */
+.pygments-x {
+  color: #f8f8f2 !important;
+} /* Other */
+.pygments-p {
+  color: #f8f8f2 !important;
+} /* Punctuation */
+.pygments-ch {
+  color: #6272a4 !important;
+} /* Comment.Hashbang */
+.pygments-cm {
+  color: #6272a4 !important;
+} /* Comment.Multiline */
+.pygments-cp {
+  color: #ff79c6 !important;
+} /* Comment.Preproc */
+.pygments-cpf {
+  color: #6272a4 !important;
+} /* Comment.PreprocFile */
+.pygments-c1 {
+  color: #6272a4 !important;
+} /* Comment.Single */
+.pygments-cs {
+  color: #6272a4 !important;
+} /* Comment.Special */
+.pygments-gd {
+  color: #8b080b !important;
+} /* Generic.Deleted */
+.pygments-ge {
+  color: #f8f8f2 !important;
+  text-decoration: underline !important;
+} /* Generic.Emph */
+.pygments-gr {
+  color: #f8f8f2 !important;
+} /* Generic.Error */
+.pygments-gh {
+  color: #f8f8f2 !important;
+  font-weight: bold !important;
+} /* Generic.Heading */
+.pygments-gi {
+  color: #f8f8f2 !important;
+  font-weight: bold !important;
+} /* Generic.Inserted */
+.pygments-go {
+  color: #44475a !important;
+} /* Generic.Output */
+.pygments-gp {
+  color: #f8f8f2 !important;
+} /* Generic.Prompt */
+.pygments-gs {
+  color: #f8f8f2 !important;
+} /* Generic.Strong */
+.pygments-gu {
+  color: #f8f8f2 !important;
+  font-weight: bold !important;
+} /* Generic.Subheading */
+.pygments-gt {
+  color: #f8f8f2 !important;
+} /* Generic.Traceback */
+.pygments-kc {
+  color: #ff79c6 !important;
+} /* Keyword.Constant */
+.pygments-kd {
+  color: #8be9fd !important;
+  font-style: italic !important;
+} /* Keyword.Declaration */
+.pygments-kn {
+  color: #ff79c6 !important;
+} /* Keyword.Namespace */
+.pygments-kp {
+  color: #ff79c6 !important;
+} /* Keyword.Pseudo */
+.pygments-kr {
+  color: #ff79c6 !important;
+} /* Keyword.Reserved */
+.pygments-kt {
+  color: #8be9fd !important;
+} /* Keyword.Type */
+.pygments-ld {
+  color: #f8f8f2 !important;
+} /* Literal.Date */
+.pygments-m {
+  color: #bd93f9 !important;
+} /* Literal.Number */
+.pygments-s {
+  color: #f1fa8c !important;
+} /* Literal.String */
+.pygments-na {
+  color: #50fa7b !important;
+} /* Name.Attribute */
+.pygments-nb {
+  color: #8be9fd !important;
+  font-style: italic !important;
+} /* Name.Builtin */
+.pygments-nc {
+  color: #50fa7b !important;
+} /* Name.Class */
+.pygments-no {
+  color: #f8f8f2 !important;
+} /* Name.Constant */
+.pygments-nd {
+  color: #f8f8f2 !important;
+} /* Name.Decorator */
+.pygments-ni {
+  color: #f8f8f2 !important;
+} /* Name.Entity */
+.pygments-ne {
+  color: #f8f8f2 !important;
+} /* Name.Exception */
+.pygments-nf {
+  color: #50fa7b !important;
+} /* Name.Function */
+.pygments-nl {
+  color: #8be9fd !important;
+  font-style: italic !important;
+} /* Name.Label */
+.pygments-nn {
+  color: #f8f8f2 !important;
+} /* Name.Namespace */
+.pygments-nx {
+  color: #f8f8f2 !important;
+} /* Name.Other */
+.pygments-py {
+  color: #f8f8f2 !important;
+} /* Name.Property */
+.pygments-nt {
+  color: #ff79c6 !important;
+} /* Name.Tag */
+.pygments-nv {
+  color: #8be9fd !important;
+  font-style: italic !important;
+} /* Name.Variable */
+.pygments-ow {
+  color: #ff79c6 !important;
+} /* Operator.Word */
+.pygments-w {
+  color: #f8f8f2 !important;
+} /* Text.Whitespace */
+.pygments-mb {
+  color: #bd93f9 !important;
+} /* Literal.Number.Bin */
+.pygments-mf {
+  color: #bd93f9 !important;
+} /* Literal.Number.Float */
+.pygments-mh {
+  color: #bd93f9 !important;
+} /* Literal.Number.Hex */
+.pygments-mi {
+  color: #bd93f9 !important;
+} /* Literal.Number.Integer */
+.pygments-mo {
+  color: #bd93f9 !important;
+} /* Literal.Number.Oct */
+.pygments-sa {
+  color: #f1fa8c !important;
+} /* Literal.String.Affix */
+.pygments-sb {
+  color: #f1fa8c !important;
+} /* Literal.String.Backtick */
+.pygments-sc {
+  color: #f1fa8c !important;
+} /* Literal.String.Char */
+.pygments-dl {
+  color: #f1fa8c !important;
+} /* Literal.String.Delimiter */
+.pygments-sd {
+  color: #f1fa8c !important;
+} /* Literal.String.Doc */
+.pygments-s2 {
+  color: #f1fa8c !important;
+} /* Literal.String.Double */
+.pygments-se {
+  color: #f1fa8c !important;
+} /* Literal.String.Escape */
+.pygments-sh {
+  color: #f1fa8c !important;
+} /* Literal.String.Heredoc */
+.pygments-si {
+  color: #f1fa8c !important;
+} /* Literal.String.Interpol */
+.pygments-sx {
+  color: #f1fa8c !important;
+} /* Literal.String.Other */
+.pygments-sr {
+  color: #f1fa8c !important;
+} /* Literal.String.Regex */
+.pygments-s1 {
+  color: #f1fa8c !important;
+} /* Literal.String.Single */
+.pygments-ss {
+  color: #f1fa8c !important;
+} /* Literal.String.Symbol */
+.pygments-bp {
+  color: #f8f8f2 !important;
+  font-style: italic !important;
+} /* Name.Builtin.Pseudo */
+.pygments-fm {
+  color: #50fa7b !important;
+} /* Name.Function.Magic */
+.pygments-vc {
+  color: #8be9fd !important;
+  font-style: italic !important;
+} /* Name.Variable.Class */
+.pygments-vg {
+  color: #8be9fd !important;
+  font-style: italic !important;
+} /* Name.Variable.Global */
+.pygments-vi {
+  color: #8be9fd !important;
+  font-style: italic !important;
+} /* Name.Variable.Instance */
+.pygments-vm {
+  color: #8be9fd !important;
+  font-style: italic !important;
+} /* Name.Variable.Magic */
+.pygments-il {
+  color: #bd93f9 !important;
+} /* Literal.Number.Integer.Long */
