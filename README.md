@@ -8,4 +8,4 @@
 
 ### Download
 
-- [**style.css**](https://raw.githubusercontent.com/Julynx/markdown_convert_themes/refs/heads/main/markdown_convert_themes/themes/dark_slides/style.css)
+- [**style.css**](https://raw.githubusercontent.com/Julynx/markdown_convert_themes/refs/heads/main/themes/dark_slides/style.css)
