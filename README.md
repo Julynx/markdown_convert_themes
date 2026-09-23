@@ -1,5 +1,7 @@
 # markdown_convert_themes
 
+CSS themes to create beautiful documents with [markdown_convert](https://github.com/julynx/markdown-convert).
+
 ## Dark Slides
 
 ### Preview
