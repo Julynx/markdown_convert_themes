@@ -1,5 +1,5 @@
 @page {
-  size: 1920px 1080px !important;
+  size: 1920px 1080px;
   background-color: #202020;
   margin-left: 20vw;
   margin-right: 20vw;
@@ -84,6 +84,44 @@ html {
   font-size: 48px;
   line-height: 1.6;
   padding: 0 1px; /* Prevents table border from being cut off */
+}
+
+/* Images */
+img {
+  max-width: none;
+  max-height: none;
+  width: auto !important;
+  object-fit: contain;
+  height: 80vh;
+  display: block;
+  margin: none;
+}
+
+img[alt*="::tiny::"],
+img[alt*="::smallest::"] {
+  height: 10vh;
+}
+
+img[alt*="::small::"] {
+  height: 30vh;
+}
+
+img[alt*="::medium::"],
+img[alt*="::normal::"] {
+  height: 60vh;
+}
+
+img[alt*="::large::"],
+img[alt*="::big::"] {
+  height: 80vh;
+}
+
+img[alt*="::full::"],
+img[alt*="::max::"],
+img[alt*="::huge::"],
+img[alt*="::wide::"] {
+  height: 100vh;
+  max-height: 100vh;
 }
 
 /* Dark theme for charts and diagrams */
